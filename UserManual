@@ -17,7 +17,7 @@ Note:
 -the use of decimal point within a coordinate IS NOT allowed
 -the file should be saved as .txt
 
-2. Open Microsoft Visual Studio and add the downloaded code and run it.
+2. Open Microsoft Visual Studio and add the downloaded code (SourceCode) and run it.
 
 3. Type in the path of your input data and press ENTER. The following format should be applied:
 C:\dev\CGAL-4.8\examples\Triangulation_2\JurassicBottomInput.txt
