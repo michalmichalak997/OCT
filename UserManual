@@ -1,0 +1,28 @@
+To use the program, follow the below steps:
+
+0. Install Microsoft Visual Studio and CGAL library. As for the latter, the instructions regarding installing can be found here:
+https://www.cgal.org/download/windows.html
+
+1. Prepare your input data in the following format:
+
+91901662 25456613 19604
+91902775 25255920 23719
+91904229 25365844 23149
+91908162 25344545 23478
+91909457 25381240 22702
+
+Note: 
+-the above set contains five boreholes, each defined by XYZ coordinates
+-the Cartesian coordinates XYZ are separated by space
+-the use of decimal point within a coordinate IS NOT allowed
+-the file should be saved as .txt
+
+2. Open Microsoft Visual Studio and add the downloaded code and run it.
+
+3. Type in the path of your input data and press ENTER. The following format should be applied:
+C:\dev\CGAL-4.8\examples\Triangulation_2\JurassicBottomInput.txt
+
+4. Type in the path of the output and press ENTER. The following format should be applied:
+C:\dev\CGAL-4.8\examples\Triangulation_2\JurassicBottomOutput.txt
+
+5. Your output file is ready for further processing.
