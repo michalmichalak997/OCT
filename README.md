@@ -1,5 +1,5 @@
 # OCT
-An application to compute the orientation of geological planes on the basis of borehole records. This code is related to the following
+An application OCT (Orientation Computing Tool) to compute the orientation parameters of geological planes on the basis of borehole records. This code is related to the following
 manuscript:
 Title: An integrated approach to compute the orientation of subsurface data, Kraków-Silesian Homocline, Poland
 Authors: 
