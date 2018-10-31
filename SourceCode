@@ -293,6 +293,6 @@ int main()
 			to_string(point_3[0] / 100.00) << ";" << to_string( point_3[1] / 100.00) << ";" << to_string(point_3[2] / 100.00) << ";" <<
 			centroid << ";" << x_n << ";" << y_n << "; " << z_n << ";" << result << ";" << current_plane.doc << ";" << current_plane.area << endl;
 	}
-
+	system("pause");
 	return 0;
 }
