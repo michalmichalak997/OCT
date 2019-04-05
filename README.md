@@ -1,7 +1,7 @@
 # OCT
 An application OCT (Orientation Computing Tool) to compute the orientation parameters of geological planes on the basis of borehole records. This code is related to the following
 manuscript:
-Title: An integrated approach to compute the orientation of subsurface data, Kraków-Silesian Homocline, Poland
+Title: Delaunay triangulation and cluster analysis to determine the orientation of a sub-horizontal and noise including contact, Kraków-Silesian Homocline, Poland
 Authors: 
 1. Michał Michalak (mimichalak@us.edu.pl), Department of Applied Geology, Faculty of Earth Sciences, University of Silesia, Poland
 2. Waldemar Bardziński (waldemar.bardzinski@us.edu.pl), Department of Fundamental Geology, Faculty of Earth Sciences, University of Silesia, Poland
