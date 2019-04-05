@@ -20,7 +20,7 @@ class plane //a class that stores the crucial figures in terms of computing the 
 {
 public:
 	static const int n = 3;			//the dimension of vectors
-	const double ex = 0.95;			//we introduce the restriction of collinearity
+	const double ex = 2;			//we introduce the restriction of collinearity
 	double first_vec[n];            //the first edge of a triangle
 	double second_vec[n];			//the second edge of a triangle
 	double third_vec[n];			//the third edge of a triangle
@@ -32,19 +32,19 @@ public:
 	bool lin_dependence;		    //a bool variable to check to answer whether points are (too) collinear
 	string dip_degrees;             //a text variable to store the dip angle
 	string azimuth_degrees;         //a text variable to store the dip direction
-		
-double dip_azimuth(double normal[], int n = 2) //a function that computes the dip azimuth
+
+	double dip_azimuth(double normal[], int n = 2) //a function that computes the dip azimuth
 	{
 		double coeff = 180 / M_PI;
-		projection(normal);
-		double angle = atan2(directional[0], directional[1]);
+		double angle = atan2(normal[1], normal[0]);
+		angle = angle * coeff;
 		if (angle < 0)
 		{
-			return (angle*coeff) + 360;
+			return angle + 360;
 		}
 		else
 		{
-			return (angle*coeff);
+			return angle;
 		}
 	}
 
@@ -55,7 +55,7 @@ double dip_azimuth(double normal[], int n = 2) //a function that computes the di
 		double coeff = 180 / M_PI;
 		expression = abs(dot_product(z_axis, normal_v)) / (length(z_axis)*length(normal_v));
 		angle = acos(expression);
-		return angle*coeff;
+		return angle * coeff;
 	}
 
 	double dot_product(double vector_line[], double direction[], int n = 3) //function that computes the dot product of vectors
@@ -123,14 +123,14 @@ double dip_azimuth(double normal[], int n = 2) //a function that computes the di
 		normal_vec[2] = v1[0] * v2[1] - v2[0] * v1[1];
 	}
 
-	
+
 	double length(double line_vector[], int n = 3) //function that computes the length of a vector
 	{
 		double vector_length = sqrt(pow(line_vector[0], 2) + pow(line_vector[1], 2) + pow(line_vector[2], 2));
 		return vector_length;
 	}
 
-	
+
 	string center(double point_1[], double point_2[], double point_3[]) //function that computes the geometrical centre of a triangle
 	{
 		double x = (point_1[0] + point_2[0] + point_3[0]) / 300.00;
@@ -170,9 +170,9 @@ double dip_azimuth(double normal[], int n = 2) //a function that computes the di
 			normal_vec[2] = first_vec[0] * second_vec[1] - second_vec[0] * first_vec[1];
 
 			double stala = 0.5;
-			double half = stala *(length(first_vec) + length(second_vec) + length(third_vec));
+			double half = stala * (length(first_vec) + length(second_vec) + length(third_vec));
 			double s = sqrt(half*(half - length(first_vec))*(half - length(second_vec))*(half - length(third_vec)));
-			this->area = s*0.0001;
+			this->area = s * 0.0001;
 		}
 
 
@@ -184,26 +184,26 @@ double dip_azimuth(double normal[], int n = 2) //a function that computes the di
 		{
 			azimuth_degrees = ("LT");
 			dip_degrees = ("LT");
-			return (azimuth_degrees + ";" + dip_degrees);
+			return (dip_degrees + ";" + azimuth_degrees);
 		}
 		else if (normal_vec[0] == 0 && normal_vec[1] == 0 && normal_vec[2] != 0)
 		{
 			dip_degrees = "0";
 			azimuth_degrees = ("x");
-			return (azimuth_degrees + ";" + dip_degrees);
+			return (dip_degrees + ";" + azimuth_degrees);
 		}
 		else if (normal_vec[2] == 0)
 		{
 			dip_degrees = "90";
 			azimuth_degrees = to_string(dip_azimuth(normal_vec));
-			return azimuth_degrees + ";" + dip_degrees;
+			return dip_degrees + ";" + azimuth_degrees;
 		}
 		else
 		{
 			double dipping_angle = dip_angle(z_axis, normal_vec);
 			dip_degrees = to_string(dipping_angle);
 			azimuth_degrees = to_string(dip_azimuth(normal_vec));
-			return azimuth_degrees + ";" + dip_degrees;
+			return dip_degrees + ";" + azimuth_degrees;
 		}
 	}
 };
@@ -244,7 +244,7 @@ int main()
 	ofstream saving(path_o); //a stream variable to save output figures
 
 	saving << "X1;" << "Y1;" << "Z1;" << "X2;" << "Y2;" << "Z2;" << "X3;" << "Y3;" << "Z3;" << "X_C;" //column names are saved
-		<< "Y_C;" << "X_N;" << "Y_N;" << "Z_N;" << "Dip_dir;" << "Dip_ang;" << "DOC;" << "Area;" <<  endl;
+		<< "Y_C;" << "X_N;" << "Y_N;" << "Z_N;" << "Dip_ang;" << "Dip_dir;" << "DOC;" << "Area;" << endl;
 
 	double point_1[3];
 	double point_2[3];
@@ -276,9 +276,9 @@ int main()
 
 		if (z_n < 0) //the case if the normal vector of a plane is directed downwards
 		{
-			x_n = -1*x_n / current_plane.length(current_plane.normal_vec); //we normalise the normal vectors by dividing them by their lengths
-			y_n = -1*y_n / current_plane.length(current_plane.normal_vec);
-			z_n = -1*z_n / current_plane.length(current_plane.normal_vec);
+			x_n = -1 * x_n / current_plane.length(current_plane.normal_vec); //we normalise the normal vectors by dividing them by their lengths
+			y_n = -1 * y_n / current_plane.length(current_plane.normal_vec);
+			z_n = -1 * z_n / current_plane.length(current_plane.normal_vec);
 		}
 
 		else //the case if the normal vector of a plane is directed upwards
@@ -288,11 +288,12 @@ int main()
 			z_n = z_n / current_plane.length(current_plane.normal_vec);
 		}
 
-		saving << to_string(point_1[0] / 100.00) << ";" << to_string( point_1[1] / 100.00) << ";" << to_string(point_1[2] / 100.00) << ";" << //saving orientation elements with respect to the column names
+		saving << to_string(point_1[0] / 100.00) << ";" << to_string(point_1[1] / 100.00) << ";" << to_string(point_1[2] / 100.00) << ";" << //saving orientation elements with respect to the column names
 			to_string(point_2[0] / 100.00) << ";" << to_string(point_2[1] / 100.00) << ";" << to_string(point_2[2] / 100.00) << ";" <<
-			to_string(point_3[0] / 100.00) << ";" << to_string( point_3[1] / 100.00) << ";" << to_string(point_3[2] / 100.00) << ";" <<
-			centroid << ";" << x_n << ";" << y_n << "; " << z_n << ";" << result << ";" << current_plane.doc << ";" << current_plane.area << endl;
+			to_string(point_3[0] / 100.00) << ";" << to_string(point_3[1] / 100.00) << ";" << to_string(point_3[2] / 100.00) << ";" <<
+			centroid << ";" << x_n << ";" << y_n << ";" << z_n << ";" << result << ";" << current_plane.doc << ";" << current_plane.area << endl;
 	}
 	system("pause");
 	return 0;
 }
+
