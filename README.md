@@ -1,7 +1,7 @@
 # OCT
 A software OCT (Orientation Computing Tool) computes the local orientations of a geological contact using Delaunay triangulation. This code is related to the following paper accepted for publication in Computers&Geosciences:
 "Using Delaunay triangulation and cluster analysis to determine the orientation of a sub-horizontal and noise including contact in Kraków-Silesian Homocline, Poland". The code was written in C++. For more information, see the UserManual.
-The authors are: 
+The authors of the paper are: 
 1. Michał Michalak (mimichalak@us.edu.pl), Department of Applied Geology, Faculty of Earth Sciences, University of Silesia in Katowice, Poland.
 2. Waldemar Bardziński (waldemar.bardzinski@us.edu.pl), Department of Fundamental Geology, Faculty of Earth Sciences, University of Silesia in Katowice, Poland.
 3. Lesław Teper (leslaw.teper@us.edu.pl), Department of Applied Geology, Faculty of Earth Sciences, University of Silesia in Katowice, Poland.
