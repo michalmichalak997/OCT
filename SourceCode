@@ -168,6 +168,12 @@ public:
 			normal_vec[0] = first_vec[1] * second_vec[2] - second_vec[1] * first_vec[2];
 			normal_vec[1] = first_vec[2] * second_vec[0] - second_vec[2] * first_vec[0];
 			normal_vec[2] = first_vec[0] * second_vec[1] - second_vec[0] * first_vec[1];
+			
+			if (normal_vec[2] < 0) {
+				normal_vec[0] *= -1  ;
+				normal_vec[1] *= -1  ;
+				normal_vec[2] *= -1  ;
+			}
 
 			double stala = 0.5;
 			double half = stala * (length(first_vec) + length(second_vec) + length(third_vec));
@@ -274,19 +280,11 @@ int main()
 		double y_n = current_plane.normal_vec[1];
 		double z_n = current_plane.normal_vec[2];
 
-		if (z_n < 0) //the case if the normal vector of a plane is directed downwards
-		{
-			x_n = -1 * x_n / current_plane.length(current_plane.normal_vec); //we normalise the normal vectors by dividing them by their lengths
-			y_n = -1 * y_n / current_plane.length(current_plane.normal_vec);
-			z_n = -1 * z_n / current_plane.length(current_plane.normal_vec);
-		}
-
-		else //the case if the normal vector of a plane is directed upwards
-		{
-			x_n = x_n / current_plane.length(current_plane.normal_vec);
-			y_n = y_n / current_plane.length(current_plane.normal_vec);
-			z_n = z_n / current_plane.length(current_plane.normal_vec);
-		}
+	
+		x_n = x_n / current_plane.length(current_plane.normal_vec);
+		y_n = y_n / current_plane.length(current_plane.normal_vec);
+		z_n = z_n / current_plane.length(current_plane.normal_vec);
+		
 
 		saving << to_string(point_1[0] / 100.00) << ";" << to_string(point_1[1] / 100.00) << ";" << to_string(point_1[2] / 100.00) << ";" << //saving orientation elements with respect to the column names
 			to_string(point_2[0] / 100.00) << ";" << to_string(point_2[1] / 100.00) << ";" << to_string(point_2[2] / 100.00) << ";" <<
