@@ -1,0 +1,152 @@
+---
+title: "A comment 'Orientation domains: A mobile grid clustering algorithm with spherical corrections'"
+author: ""
+date: "15.12.2023"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(ggplot2)
+```
+
+```{r}
+library(dendextend)
+```
+
+
+```{r}
+library(dplyr)
+```
+
+```{r}
+coeff = 180 / pi 
+```
+
+We are reading the file:
+```{r}
+orientations <- read.csv(file = "DataSet.csv", sep = ";", dec="," , header = TRUE)
+```
+
+
+```{r}
+orientations$X_D<-cos(orientations$Dip_ang_deg / coeff) * cos( orientations$Dip_dir_deg / coeff);
+orientations$Y_D<-cos(orientations$Dip_ang_deg / coeff) * sin(orientations$Dip_dir_deg / coeff)
+orientations$Z_D<-sin(orientations$Dip_ang_deg / coeff)
+```
+
+Our data set has the following structure:
+```{r}
+head(orientations)
+```
+
+
+```{r}
+
+```
+
+We are sub-setting the data set by taking the direction cosines:
+```{r}
+subtable <- orientations[c("X_D", "Y_D", "Z_D")]
+```
+
+First, we perform the clustering using k-means algorithm:
+```{r}
+kmeans_r <- kmeans(subtable, centers = 3, iter.max = 50, nstart = 20)
+```
+
+The identification number of clusters are extracted:
+```{r}
+kmeansid <- kmeans_r$cluster
+```
+
+We summarise the clustering results using k-means algorithm:
+```{r}
+table(kmeansid)
+```
+
+
+We add the identification numbers to the initial data set:
+```{r}
+orientations <- mutate (orientations, kmeansid)
+```
+
+Secondly, we perform hierarchical clustering using euclidean distance and Ward linkage method:
+
+```{r}
+euclid_r <- hclust (dist(subtable, method="euclidean"), method="ward.D")
+```
+
+The identification number of clusters are extracted:
+
+```{r}
+euclidid <- cutree(euclid_r, k=3)
+```
+
+We summarise the clustering results using hierarchical clustering:
+```{r}
+table(euclidid)
+```
+
+
+```{r}
+ggplot(orientations, aes(x=Dip_dir_deg, y=Dip_ang_deg))+
+  geom_point()
+```
+
+
+We can add a dendrogram:
+
+```{r}
+dendroplot <- as.dendrogram(euclid_r)
+```
+
+We delete labels:
+```{r}
+labels(dendroplot) <- rep(c(""))
+```
+
+```{r}
+tiff("Dendrogram.tif", units="in", width=7, height=5, res=1000)
+dendroplot %>%
+  set("branches_k_color", value = c(3,2,4), k = 3) %>% 
+    plot(main = "Euclidean distance, \n Ward linkage", ylab="Distance")
+dev.off()
+```
+
+We add the identification numbers to the initial data set:
+```{r}
+orientations <- mutate (orientations, euclidid)
+```
+
+
+The modified file looks as follows:
+
+```{r}
+head(orientations)
+```
+Saving data from different clusters to different files to upload in Stereonet.
+
+```{r}
+tab1<-dplyr::select(dplyr::filter(orientations, euclidid==1),c("Dip_ang_deg", "Dip_dir_deg"))
+write.table(x= tab1, file = "DataSettab1.csv",  sep = ",", dec=".", col.names = TRUE, row.names = FALSE)
+```
+
+```{r}
+tab2<-dplyr::select(dplyr::filter(orientations, euclidid==2),c("Dip_ang_deg", "Dip_dir_deg"))
+write.table(x= tab2, file = "DataSettab2.csv",  sep = ",", dec=".", col.names = TRUE, row.names = FALSE)
+```
+
+```{r}
+tab3<-dplyr::select(dplyr::filter(orientations, euclidid==3),c("Dip_ang_deg", "Dip_dir_deg"))
+write.table(x= tab3, file = "DataSettab3.csv",  sep = ",", dec=".", col.names = TRUE, row.names = FALSE)
+```
+
+The modified file is saved:
+```{r}
+write.table(x= orientations, file = "DataSetResults.csv",  sep = ";", dec=".", col.names = TRUE, row.names = FALSE)
+```
+
