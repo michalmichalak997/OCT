@@ -6,6 +6,7 @@ https://www.cgal.org/download/windows.html
 ## 1. Prepare your input data in the following format:
 
 Example 1.
+
 | 919016.62 | 254566.13 | 196.04 | 1 |
 | 919027.75 | 252559.20 | 237.19 | 2 |
 | 919042.29 | 253658.44 | 231.49 | 3 |
@@ -13,11 +14,16 @@ Example 1.
 | 919094.57 | 253812.40 | 227.02 | 5 |
 
 Example 2.
+
 | 919016.62 | 254566.13 | 196.04 | 189.09 | 1 |
 | 919027.75 | 252559.20 | 237.19 | 121.30 | 2 |
 | 919042.29 | 253658.44 | 231.49 | 201.11 | 3 |
 | 919081.62 | 253445.45 | 234.78 | 211.98 | 4 |
 | 919094.57 | 253812.40 | 227.02 | 234.30 | 5 |
+
+|  5 |  5 | 5  | 5  | 5  |
+|  5 |  5 |5   |  5 |  5 |
+|  5 | 5  | 5  | 5  |  5 |
 
 Note: 
 -the first example contains one surface and the second example contains two surfaces
