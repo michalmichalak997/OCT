@@ -1,6 +1,6 @@
 # Instruction
 
-## 1. Install Microsoft Visual Studio and CGAL library. As for the latter, the instructions regarding installing can be found here:
+## 1. Install Microsoft Visual Studio and CGAL library. The instructions with CGAL installation can be found here:
 https://www.cgal.org/download/windows.html
 
 ## 2. Prepare your input data in the following format:
@@ -24,7 +24,9 @@ X | Y| Z1 | Z2 | id
 | 919094.57 | 253812.40 | 227.02 | 234.30 | 5 |
 
 
-Note: 
+
+Note:
+
 - X corresponds to latitude, Y corresponds to longitude, Z corresponds to elevation, id corresponds to the number of point
 - the first example contains one surface and the second example contains two surfaces
 - the above set contains five boreholes, each defined by XYZ coordinates
@@ -36,6 +38,8 @@ Note:
 
 
 ## 3. Open Microsoft Visual Studio, paste the code (SourceCode) and run it.
+
+
 
 ## 4. Type in the path of your input data and press ENTER. The following format should be applied:
 C:\dev\CGAL-4.8\examples\Triangulation_2\JurassicBottomInput.txt
