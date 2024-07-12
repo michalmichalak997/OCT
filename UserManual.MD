@@ -6,7 +6,8 @@ https://www.cgal.org/download/windows.html
 ## 1. Prepare your input data in the following format:
 
 Example 1.
-
+X | Y| Z | id
+--- | --- | --- | ---
 | 919016.62 | 254566.13 | 196.04 | 1 |
 | 919027.75 | 252559.20 | 237.19 | 2 |
 | 919042.29 | 253658.44 | 231.49 | 3 |
