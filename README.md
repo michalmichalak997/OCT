@@ -31,7 +31,7 @@ In this work, we combined a three-point problem with Delaunay triangulation to d
 
 https://www.cgal.org/download/windows.html
 
-Alternatively, you can contact Michal Michalak and ask for an executable. KYC and AML procedures will be applied :)
+Alternatively, you can contact Michal Michalak and ask for an executable. KYC and AML procedures will be applied.
 
 ## 2. Prepare your input data in the following format:
 
