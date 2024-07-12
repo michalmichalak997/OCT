@@ -28,7 +28,10 @@ In this work, we combined a three-point problem with Delaunay triangulation to d
 # Instruction
 
 ## 1. Install Microsoft Visual Studio and CGAL library. The instructions with CGAL installation can be found here:
+
 https://www.cgal.org/download/windows.html
+
+Alternatively, you can contact Michal Michalak and ask for an executable. KYC and AML procedures will be applied :)
 
 ## 2. Prepare your input data in the following format:
 
