@@ -5,17 +5,19 @@ https://www.cgal.org/download/windows.html
 
 ## 1. Prepare your input data in the following format:
 
-91901662 25456613 19604
-91902775 25255920 23719
-91904229 25365844 23149
-91908162 25344545 23478
-91909457 25381240 22702
+919016.62 254566.13 196.04 1
+919027.75 252559.20 237.19 2
+919042.29 253658.44 231.49 3
+919081.62 253445.45 234.78 4
+919094.57 253812.40 227.02 5
 
 Note: 
 -the above set contains five boreholes, each defined by XYZ coordinates
 -the Cartesian coordinates XYZ are separated by space
--the use of decimal point within a coordinate IS NOT allowed
+-the use of decimal point within a coordinate is allowed
 -the file should be saved as .txt
+
+https://user-images.githubusercontent.com/28152295/161118209-17dc606a-e266-4c82-b4e1-cbeca6f4973c.png 
 
 ## 2. Open Microsoft Visual Studio, paste the code (SourceCode) and run it.
 
