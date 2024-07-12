@@ -60,7 +60,7 @@ Note:
 - the last column must be the index
 - the Cartesian coordinates XYZ are separated by space
 - the use of decimal point within a coordinate is allowed
-- remove header (X Y Z id)
+- remove header (X Y Z id) prior to executing the program
 - the file should be saved as .txt
 
 
