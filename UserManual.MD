@@ -1,9 +1,9 @@
 # Instruction
 
-## 0. Install Microsoft Visual Studio and CGAL library. As for the latter, the instructions regarding installing can be found here:
+## 1. Install Microsoft Visual Studio and CGAL library. As for the latter, the instructions regarding installing can be found here:
 https://www.cgal.org/download/windows.html
 
-## 1. Prepare your input data in the following format:
+## 2. Prepare your input data in the following format:
 
 Example 1.
 X | Y| Z | id
@@ -24,7 +24,6 @@ X | Y| Z1 | Z2 | id
 | 919094.57 | 253812.40 | 227.02 | 234.30 | 5 |
 
 
-
 Note: 
 - X corresponds to latitude, Y corresponds to longitude, Z corresponds to elevation, id corresponds to the number of point
 - the first example contains one surface and the second example contains two surfaces
@@ -36,12 +35,12 @@ Note:
 - the file should be saved as .txt
 
 
-## 2. Open Microsoft Visual Studio, paste the code (SourceCode) and run it.
+## 3. Open Microsoft Visual Studio, paste the code (SourceCode) and run it.
 
-## 3. Type in the path of your input data and press ENTER. The following format should be applied:
+## 4. Type in the path of your input data and press ENTER. The following format should be applied:
 C:\dev\CGAL-4.8\examples\Triangulation_2\JurassicBottomInput.txt
 
-## 4. Type in the path of the output and press ENTER. The following format should be applied:
+## 5. Type in the path of the output and press ENTER. The following format should be applied:
 C:\dev\CGAL-4.8\examples\Triangulation_2\JurassicBottomOutput.txt
 
-## 5. Your output files are ready for further processing.
+## 6. Your output files are ready for further processing.
