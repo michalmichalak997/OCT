@@ -27,7 +27,7 @@ Link to the paper: https://doi.org/10.1016/j.cageo.2019.104322
 
 https://www.cgal.org/download/windows.html
 
-Alternatively, you can contact Michal Michalak and ask for an executable. KYC and AML procedures will be applied.
+Alternatively, you can contact Michal Michalak and ask for an executable. KYC and AML procedures will be applied 🤤
 
 ## 2. Prepare your input data in the following format:
 
@@ -66,12 +66,14 @@ Note:
 ## 3. Open Microsoft Visual Studio, paste the code (SourceCode) and run it.
 
 - Specify the number of input surfaces
-- 
-- Type in the path of your input data and press ENTER. The following format should be applied:
+  
+- Specify the path of your input data and press ENTER. The following format should be applied:
 C:\dev\CGAL-4.8\examples\Triangulation_2\JurassicBottomInput.txt
 
-- Type in the path of the output and press ENTER. The following format should be applied:
+- Specify the path of the output and press ENTER. The following format should be applied:
 C:\dev\CGAL-4.8\examples\Triangulation_2\JurassicBottomOutput.txt
+
+- Specify the density of the regular grid (the distance of separation between points). If you are not interested in a regular version of the map, you can enter a big number such as 10000
 
 ![program-realdata](https://github.com/user-attachments/assets/ba16ce87-9e98-4991-a376-75c0373c0ae8)
 
