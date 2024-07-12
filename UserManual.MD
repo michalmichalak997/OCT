@@ -26,14 +26,14 @@ X | Y| Z1 | Z2 | id
 
 
 Note: 
--X corresponds to latitude, Y corresponds to longitude, Z corresponds to elevation, id corresponds to the number of point
--the first example contains one surface and the second example contains two surfaces
--the above set contains five boreholes, each defined by XYZ coordinates
--the last column must be the index
--the Cartesian coordinates XYZ are separated by space
--the use of decimal point within a coordinate is allowed
--remove header (X Y Z id)
--the file should be saved as .txt
+- X corresponds to latitude, Y corresponds to longitude, Z corresponds to elevation, id corresponds to the number of point
+- the first example contains one surface and the second example contains two surfaces
+- the above set contains five boreholes, each defined by XYZ coordinates
+- the last column must be the index
+- the Cartesian coordinates XYZ are separated by space
+- the use of decimal point within a coordinate is allowed
+- remove header (X Y Z id)
+- the file should be saved as .txt
 
 
 ## 2. Open Microsoft Visual Studio, paste the code (SourceCode) and run it.
