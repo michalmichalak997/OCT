@@ -75,7 +75,8 @@ C:\dev\CGAL-4.8\examples\Triangulation_2\JurassicBottomOutput.txt
 
 - Specify the density of the regular grid (the distance of separation between points). If you are not interested in a regular version of the map, you can enter a big number such as 10000
 
-![program-realdata](https://github.com/user-attachments/assets/ba16ce87-9e98-4991-a376-75c0373c0ae8)
+![program-realdata](https://github.com/user-attachments/assets/7e233215-ddbd-469a-bdae-1600cec11fb2)
+
 
 ## 4. Your output files are ready for further processing including .vtu files for ParaView.
 
